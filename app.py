@@ -39,7 +39,7 @@ persist_directory = load_pdf_courses('893')
 
 vectordb = Chroma(persist_directory=persist_directory,
                   embedding_function=embeddings)
-query = 'ChatGPT的技术原理是怎么样的？'
+query = 'ChatGPT 是如何发展演变的，历史沿革是怎样的？'
 search_docs = vectordb.similarity_search(query, 2)
 # print(search_docs)
 llm = ChatOpenAI(temperature=0, openai_api_key=OPENAI_API_KEY,
