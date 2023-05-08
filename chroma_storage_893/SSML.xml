@@ -1,15 +1,1 @@
-<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US"><voice name="zh-TW-YunJheNeural"><prosody rate="20%" pitch="20%">ChatGPT的局限性是什么？ChatGPT存在多种局限性，包括但不限于：
-
-1. 安全性问题：在设计和使用ChatGPT时，需要考虑安全性问题，并采取相应的措施来保证安全。
-
-2. 缺乏个性化：ChatGPT生成的文本可能不够具有个性，它倾向于讨好提问者，可能会忽略提问者的个性化需求。
-
-3. 犯事实性错误：ChatGPT有时会以一种严肃的语调来表述编造的内容，可能会对于不知道或不确定的事实，强行根据用户的输入进行主观猜测，然后以确定的语气来回答，造成对用户的误导。
-
-4. 不具备可解释性：有时候，ChatGPT的回答看似合理，但是无迹可寻，同时由于它没有办法通过充足的理由去解释它的回答是否正确，导致在一些需要精确、严谨的领域无法很好的应用。
-
-5. 受限于计算资源：如果计算资源不足，ChatGPT就不能得到很好的应用。
-
-6. 无法在线更新知识：目前的范式增加新知识的方式只能通过重新训练预训练GPT模型，但这无疑是不现实的，因为其会耗费巨大的计算成本。
-
-除了上述局限外，目前ChatGPT仍存在其他一些技术问题，例如模型的训练成本极高、系统复杂以及测试成本高等。但最致命的还是它的过滤系统可能会被“越狱”突破。</prosody></voice></speak>
+<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US"><voice name="zh-TW-YunJheNeural"><prosody rate="20%" pitch="20%">ChatGPT 是如何发展演变的，历史沿革是怎样的？根据文中所述，ChatGPT是一种基于生成式预训练技术的语言模型，它使用了Transformer架构和GPT（生成式预训练技术）来预测下一个单词的概率分布，以生成自然语言文本。GPT训练的模型是一种应用于自然语言处理（NLP）的模型，它通过在超大型文本语料库上训练学习到的语言模式来实现的。从2018年拥有1.17亿参数的GPT-1到2020年拥有1750亿参数的GPT-3，OpenAI的语言模型智能化程度明显提升。在2022年1月基于RLHF（reinforcement learning from human feedback）的InstructGPT的提出显著降低了有害、不真实和有偏差输出的概率。在2022年12月，ChatGPT作为InstructGPT的姐妹模型被推出。因此，ChatGPT是在GPT的基础上发展演变而来的，是GPT系列模型的最新版本。</prosody></voice></speak>
