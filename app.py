@@ -12,7 +12,7 @@ load_dotenv()
 OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 OPENAI_API_BASE = os.environ['OPENAI_API_BASE']
 
-embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
+embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY, openai_api_version='2020-11-07')
 
 
 def load_pdf_courses(pdf_name):
@@ -42,8 +42,8 @@ vectordb = Chroma(persist_directory=persist_directory,
 query = 'ChatGPT 和 OpenAI 什么关系？'
 search_docs = vectordb.similarity_search(query, 2)
 # print(search_docs)
-llm = ChatOpenAI(temperature=0, openai_api_key=OPENAI_API_KEY,
-                 model_name='gpt-3.5-turbo', api_base=OPENAI_API_BASE)
+
+llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo')
 chain = load_qa_chain(llm, chain_type='stuff')
 results = chain.run(input_documents=search_docs, question=query)
 print(f'Q: {query}')
@@ -64,6 +64,6 @@ prosody.set('rate', '20%')
 prosody.set('pitch', '20%')
 prosody.text = query + results
 
-ET.dump(speak)
+# ET.dump(speak)
 tree = ET.ElementTree(speak)
 tree.write(persist_directory + '/SSML.xml', encoding='utf-8')
