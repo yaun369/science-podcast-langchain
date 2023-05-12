@@ -39,15 +39,15 @@ persist_directory = load_pdf_courses('893')
 
 vectordb = Chroma(persist_directory=persist_directory,
                   embedding_function=embeddings)
-query = 'ChatGPT 是如何发展演变的，历史沿革是怎样的？'
+query = 'ChatGPT 和 OpenAI 什么关系？'
 search_docs = vectordb.similarity_search(query, 2)
 # print(search_docs)
 llm = ChatOpenAI(temperature=0, openai_api_key=OPENAI_API_KEY,
                  model_name='gpt-3.5-turbo', api_base=OPENAI_API_BASE)
 chain = load_qa_chain(llm, chain_type='stuff')
 results = chain.run(input_documents=search_docs, question=query)
-# print(f'Q: {query}')
-# print(f'A: {results}')
+print(f'Q: {query}')
+print(f'A: {results}')
 
 speak = ET.Element('speak')
 speak.set('xmlns', 'http://www.w3.org/2001/10/synthesis')
