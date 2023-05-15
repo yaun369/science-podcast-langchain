@@ -1,4 +1,8 @@
+Flask
 langchain==0.0.166
-python-dotenv==1.0.0
-websockets==11.0.2
-chromadb==0.3.21
+openai
+pypdf
+tiktoken
+python-dotenv
+websockets
+chromadb
