@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+from document import load_arxiv_courses
 import os
 
 app = Flask(__name__)
@@ -6,14 +7,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "xRunda AI Lab"
+    return 'xRunda AI Lab'
 
 
-@app.route('/api/data', methods=['GET', 'POST'])
+@app.route('/api/docs', methods=['GET', 'POST'])
 def get_data():
     if request.method == 'GET':
         task_id = request.args.get('id')
-
         if not task_id:
             return jsonify({'code': 1001, 'msg': 'id is required'})
 
@@ -23,20 +23,14 @@ def get_data():
         }
         return jsonify(sample_data)
     elif request.method == 'POST':
-        print("DEBUG request", request)
-        encode_url = request.args.get('url')
-
-        if not encode_url:
+        arxiv_id = request.args.get('id')
+        if not arxiv_id:
             return jsonify({'code': 1001, 'msg': 'id is required'})
-
-        response = {
-            'submitted_url': encode_url,
-            'summary': "summary",
-        }
-
-        return jsonify(response)
+        
+        metadata = load_arxiv_courses(arxiv_id)
+        return jsonify(metadata)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5001))
     app.run(debug=True, host='127.0.0.1', port=port)

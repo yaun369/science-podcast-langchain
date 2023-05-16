@@ -2,7 +2,9 @@ Flask
 langchain==0.0.166
 openai
 pypdf
+pymupdf
 tiktoken
 python-dotenv
 websockets
 chromadb
+arxiv
