@@ -39,7 +39,7 @@ if os.path.exists(PERSIST_DIRECTORY) != True:
 vectordb = Chroma(persist_directory=PERSIST_DIRECTORY,
                   embedding_function=embeddings, client_settings=CHROMA_SETTINGS)
 
-query = 'CR-V值得买么'
+query = 'CR-V缺点多么？'
 search_docs = vectordb.similarity_search(query, 2)
 print(len(search_docs))
 print(search_docs)

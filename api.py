@@ -23,6 +23,7 @@ def get_data():
         }
         return jsonify(sample_data)
     elif request.method == 'POST':
+        print('req >>>', request.args)
         arxiv_id = request.args.get('id')
         if not arxiv_id:
             return jsonify({'code': 1001, 'msg': 'id is required'})
