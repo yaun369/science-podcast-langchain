@@ -31,17 +31,15 @@ if PINECONE_INDEX not in pinecone.list_indexes():
     print(len(docs))
     Pinecone.from_documents(docs, embeddings, index_name=PINECONE_INDEX)
 
-index = pinecone.Index(PINECONE_INDEX)
-text_field = 'text'
-vectorstore = Pinecone(index, embeddings, text_field)
+docsearch = Pinecone.from_existing_index(
+    index_name=PINECONE_INDEX, embedding=embeddings)
 
 query = 'CR-V值得买么？'
-search_docs = vectorstore.similarity_search(query, k=3)
-print(len(search_docs))
-print(search_docs)
+search_docs = docsearch.similarity_search(query, k=3)
+# print(search_docs)
 
-# llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo')
-# chain = load_qa_chain(llm, chain_type='stuff')
-# results = chain.run(input_documents=search_docs, question=query)
-# print(f'Q: {query}')
-# print(f'A: {results}')
+llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo')
+chain = load_qa_chain(llm, chain_type='stuff')
+results = chain.run(input_documents=search_docs, question=query)
+print(f'Q: {query}')
+print(f'A: {results}')
